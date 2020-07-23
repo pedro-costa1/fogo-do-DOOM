@@ -6,6 +6,7 @@ const fireHeight = 10;
 // Função para inicializar
 function start() {
     createFireDataStructure();
+    createFireSource();
     renderFire();
 }
 
@@ -58,6 +59,19 @@ function renderFire() {
 
     // Substituindo o innerHTML pelo o resultado de tudo
     document.querySelector('#fireCanvas').innerHTML = html;
+}
+
+// Função para criar a fonte de fogo
+function createFireSource() {
+    // Laço para cair sempre na última posção de cada COLUNA
+    for (let column = 0; column <= fireWidht; column++) {
+        // Caindo numa posiçao 1 depois da última do canvas(um,valor fora da estrutura de dados)
+        const overflowPixelIndex = fireWidht * fireHeight;
+        // Caindo na ultima posição de cada coluna a cada laço
+        const pixelIndex = (overflowPixelIndex - fireWidht) + column;
+
+        firePixelArray[pixelIndex] = 36;
+    }
 }
 
 start();
