@@ -38,11 +38,15 @@ function renderFire() {
         for (let column = 0; column < fireWidht; column++) {
             // Indice do pixel
             const pixelIndex = column + (fireWidht * row);
+            // Caessando valor contido dentro da estrutura de dados
+            const fireintesity = firePixelArray[pixelIndex];
 
             html += '<td>';
 
-            // Printando o valor dentro da célula
+            // Imprimindo o valor dentro da célula
             html += `<div class="pixel-index">${pixelIndex}</div>`
+            // Imprimindo o valor da estrura de dados 
+            html += fireintesity;
 
             html += '</td>';
         }
