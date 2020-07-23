@@ -8,6 +8,8 @@ function start() {
     createFireDataStructure();
     createFireSource();
     renderFire();
+
+    setInterval(calculateFirePropagation, 1000);
 }
 
 // Função para criar a estrutura de dados do fogo
@@ -23,7 +25,13 @@ function createFireDataStructure() {
 
 // Função para calcular a propagação do fogo
 function calculateFirePropagation() {
+    for (let column = 0; column < fireWidht; column++) {
+        for (let row = 0; row < fireHeight; row++) {
+            const pixelIndex = column + (fireWidht * row);
 
+            console.log(pixelIndex);
+        }
+    }
 }
 
 // Funçao para renderizar o fogo
