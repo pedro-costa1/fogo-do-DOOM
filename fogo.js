@@ -29,9 +29,30 @@ function calculateFirePropagation() {
         for (let row = 0; row < fireHeight; row++) {
             const pixelIndex = column + (fireWidht * row);
 
-            console.log(pixelIndex);
+            updateFireIntesityPerPixel(pixelIndex);
         }
     }
+
+    // Renderizando a cada calculo
+    renderFire();
+}
+
+// Função para calcular a intensidade de acordo com o pixel de baixo
+function updateFireIntesityPerPixel(currentPixelIndex){
+    const belowPixelIndex = currentPixelIndex + fireWidht;
+
+    // Caso o pixel de baixo seja fora dao canvas a função não calcula nada
+    if (belowPixelIndex >= fireWidht * fireHeight) {
+        return;
+    }
+
+    const decay = 1;
+    const belowPixelFireIntesity = firePixelArray[belowPixelIndex];
+    //para o numero nao fiacar negativo(no minimo 0)
+    const newFireIntensity = 
+        belowPixelFireIntesity - decay >= 0 ? belowPixelFireIntesity - decay : 0;
+
+    firePixelArray[currentPixelIndex] = newFireIntensity;
 }
 
 // Funçao para renderizar o fogo
