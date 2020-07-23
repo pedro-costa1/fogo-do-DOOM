@@ -1,7 +1,7 @@
 // Variaveis principais
 const firePixelArray = [];
-const fireWidht = 2;
-const fireHeight = 3;
+const fireWidht = 10;
+const fireHeight = 10;
 
 // Função para inicializar
 function start() {
@@ -42,7 +42,7 @@ function renderFire() {
             html += '<td>';
 
             // Printando o valor dentro da célula
-            html += pixelIndex;
+            html += `<div class="pixel-index">${pixelIndex}</div>`
 
             html += '</td>';
         }
