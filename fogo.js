@@ -48,13 +48,15 @@ function updateFireIntesityPerPixel(currentPixelIndex){
         return;
     }
 
-    const decay = 1;
+    // Para o fogo nao subir tao uniforme
+    const decay = Math.floor(Math.random() * 3);
     const belowPixelFireIntesity = firePixelArray[belowPixelIndex];
     //para o numero nao fiacar negativo(no minimo 0)
     const newFireIntensity = 
         belowPixelFireIntesity - decay >= 0 ? belowPixelFireIntesity - decay : 0;
 
-    firePixelArray[currentPixelIndex] = newFireIntensity;
+    // Para fzer o efito de vento
+    firePixelArray[currentPixelIndex - decay] = newFireIntensity;
 }
 
 // Funçao para renderizar o fogo
